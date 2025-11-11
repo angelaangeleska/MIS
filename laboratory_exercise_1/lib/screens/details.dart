@@ -15,26 +15,21 @@ class ExamDetails extends StatelessWidget {
     final now = DateTime.now();
     final difference = exam.dateTime.difference(now);
 
+    final int days = difference.inDays;
+    final int hours = difference.inHours.remainder(24);
+
     String remainingTimeText;
     IconData remainingIcon;
     Color remainingColor;
 
     if (difference.isNegative) {
-      remainingTimeText = 'Exam passed ${difference.inDays.abs()} days ago';
+      remainingTimeText = 'Exam passed ${days.abs()} days, ${hours.abs()} hours ago';
       remainingIcon = Icons.check_circle_outline;
       remainingColor = Colors.red.shade400;
-    } else if (difference.inDays > 0) {
-      remainingTimeText = '${difference.inDays} days until exam';
-      remainingIcon = Icons.timer_outlined;
-      remainingColor = Colors.teal;
     } else if (difference.inHours > 0) {
-      remainingTimeText = '${difference.inHours} hours until exam';
+      remainingTimeText = '$days days, $hours hours until exam';
       remainingIcon = Icons.timer_outlined;
-      remainingColor = Colors.deepOrange;
-    } else if (difference.inMinutes > 0) {
-      remainingTimeText = '${difference.inMinutes} minutes until exam';
-      remainingIcon = Icons.timer_outlined;
-      remainingColor = Colors.purple;
+      remainingColor = days > 0 ? Colors.teal : Colors.deepOrange;
     } else {
       remainingTimeText = 'Exam starts soon!';
       remainingIcon = Icons.notifications_active_outlined;
