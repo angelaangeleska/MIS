@@ -1,16 +1,38 @@
-# laboratory_exercise_1
+# Exam Schedule - Lab Exercise 1
 
-A new Flutter project.
+A simple Flutter app that displays a schedule of exams. The app shows exams in chronological order with different colors for past and upcoming exams. Each exam can be opened for detailed information including remaining time until the exam.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- List of exams showing course name, date, time, and classrooms
+- Different colors for past and upcoming exams
+- Uses Card widgets for clean UI presentation
+- Detailed screen for each exam showing remaining time ("X days, Y hours")
+- Badge showing total number of exams
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Home screen
+![Home screen](demo/images/home_screen.jpg)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Exam details for a past exam
+![Past exam details](demo/images/exam_details_passed.jpg)
+
+### Exam details for an upcoming exam
+![Upcoming exam details](demo/images/exam_details_upcoming.jpg)
+
+***
+
+Video demonstration is available [here](demo/exam_schedule_demo.mp4)
+
+***
+
+## How to Run
+
+1. Install Flutter SDK and a suitable IDE (Android Studio or VS Code)
+2. Clone the repository
+3. Run the following commands in the terminal:
+```
+flutter pub get
+flutter run
+```
