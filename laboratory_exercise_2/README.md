@@ -1,16 +1,44 @@
-# laboratory_exercise_2
+# Recipes App – Lab Exercise 2
 
-A new Flutter project.
+A Flutter app that displays recipes from [TheMealDB](https://www.themealdb.com) API. The app shows meal categories, meals inside each category, and detailed recipes with ingredients, instructions, and a YouTube tutorial link.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- List of categories with images and descriptions
+- Grid of meals for a selected category
+- Search bar for filtering categories and meals by name
+- Detailed recipe screen showing:
+    - Meal image, name and full instructions
+    - Structured list of ingredients with measures
+    - Button to open a YouTube video tutorial for the recipe
+- "Recipe of the day" button that loads a random recipe
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Home screen
+![Home screen](demo/images/home_screen.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Meals in a category
+![Meals in a category](demo/images/meals_in_category.png)
+
+### Recipe details
+![Recipe details](demo/images/recipe_details_1.png)
+![Recipe details](demo/images/recipe_details_2.png)
+
+***
+
+Video demonstration is available [here](demo/themealdb_app_demo.mp4)
+
+***
+
+## How to Run
+
+1. Install Flutter SDK and a suitable IDE (Android Studio or VS Code).
+2. Clone the repository.
+3. Navigate to the `laboratory_exercise_2` folder.
+4. Run the following commands in the terminal:
+
+```
+flutter pub get
+flutter run
+```
