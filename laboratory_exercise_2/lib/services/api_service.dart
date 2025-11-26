@@ -51,18 +51,16 @@ class ApiService {
     }
 
     Future<Recipe> loadRandomRecipe() async {
-      String uri = "https://www.themealdb.com/api/json/v1/1/random.php";
-      final url = Uri.parse(uri);
-      final response = await http.get(url);
+      final response = await http.get(
+        Uri.parse('https://www.themealdb.com/api/json/v1/1/random.php'),
+      );
 
-      if(response.statusCode == 200) {
-        final Map data = jsonDecode(response.body);
-        final List list = data['meals'];
-        return Recipe.fromJSON(list[0]);
-      } else {
-        throw Exception("Failed to load random recipe!");
-      }
+      final data = jsonDecode(response.body);
+      final mealJson = data['meals'][0];
+
+      return Recipe.fromJSON(mealJson);
     }
+
 
     Future<List<Meal>> searchMealsByName(String query) async {
       String uri = "https://www.themealdb.com/api/json/v1/1/search.php?s=$query";

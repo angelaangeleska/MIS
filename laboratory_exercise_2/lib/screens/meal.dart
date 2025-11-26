@@ -12,7 +12,7 @@ class MealPage extends StatefulWidget {
 }
 
 class _MealPageState extends State<MealPage> {
-  late int mealId;
+  int? mealId;
   late Recipe recipe;
   bool _isLoading = true;
   final ApiService _apiService = ApiService();
@@ -27,14 +27,29 @@ class _MealPageState extends State<MealPage> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     if (!_initialized) {
-      mealId = ModalRoute.of(context)!.settings.arguments as int;
-      _loadRecipe();
+      final args = ModalRoute.of(context)!.settings.arguments;
+
+      if (args is int) {
+        mealId = args;
+        _loadRecipe();
+      } else {
+        _loadRandomRecipe();
+      }
+
       _initialized = true;
     }
   }
 
+  void _loadRandomRecipe() async {
+    final recipeData = await _apiService.loadRandomRecipe();
+    setState(() {
+      recipe = recipeData;
+      _isLoading = false;
+    });
+  }
+
   void _loadRecipe() async {
-    final recipeData = await _apiService.loadRecipeByMealId(mealId);
+    final recipeData = await _apiService.loadRecipeByMealId(mealId!);
     setState(() {
       recipe = recipeData;
       _isLoading = false;
