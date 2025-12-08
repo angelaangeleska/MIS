@@ -44,6 +44,14 @@ class _HomePageState extends State<HomePage> {
             label: const Text("Recipe of the day", style: TextStyle(color: Colors.white)),
           ),
         ],
+        flexibleSpace: Container(
+          alignment: Alignment.centerRight,
+          padding: const EdgeInsets.only(right: 182, top: 50),
+          child: IconButton(
+            onPressed: () => Navigator.pushNamed(context, "/favorites"),
+            icon: const Icon(Icons.favorite, color: Colors.white),
+          ),
+        ),
       ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
