@@ -3,10 +3,16 @@ import 'package:laboratory_exercise_2/screens/category_meals.dart';
 import 'package:laboratory_exercise_2/screens/favourites.dart';
 import 'package:laboratory_exercise_2/screens/home.dart';
 import 'package:laboratory_exercise_2/screens/meal.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 Map<int, bool> favourites = {};
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
